@@ -1,0 +1,76 @@
+  <div style="padding: 5%; display: flex;">
+    <form  [formGroup]="cricketTeamForm" (ngSubmit)="onSubmitCricketTeam()"  style="width: 80%;">
+      <div class="form-group">
+        <label for="playerId">Player Id :</label>
+        <input type="number"   class="form-control" id="playerId" formControlName="playerId"
+          required [ngClass]="{'is-invalid':getCricketTeam['playerId'].errors,'is-valid': !getCricketTeam['playerId'].errors}">
+          <div *ngIf="!getCricketTeam['playerId'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['playerId'].errors?.['required']" style="color: red;">Player ID cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="playerName">Player Name :</label>
+        <input type="text"   class="form-control" id="playerName" formControlName="playerName"
+          required [ngClass]="{'is-invalid':getCricketTeam['playerName'].errors,'is-valid': !getCricketTeam['playerName'].errors}">
+          <div *ngIf="getCricketTeam['playerName'].errors && !getCricketTeam['playerName'].errors?.['required']" class="invalid-feedback">PLayer Name can have only alphabets</div>
+          <div *ngIf="!getCricketTeam['playerName'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['playerName'].errors?.['required']" style="color: red;">Player Name cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="jerseyNumber">jersey Number :</label>
+        <input type="number"   class="form-control" id="jerseyNumber" formControlName="jerseyNumber"
+          required [ngClass]="{'is-invalid':getCricketTeam['jerseyNumber'].errors,'is-valid': !getCricketTeam['jerseyNumber'].errors}">
+          <div *ngIf="!getCricketTeam['jerseyNumber'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['jerseyNumber'].errors?.['required']" style="color: red;">jersey Number cannot be empty</div>
+      </div>
+      <div style="display: flex; flex-direction: column; ">
+        <label for="role">role:</label>
+        <div style="display: flex; flex-direction: row;">
+          <select id="role" formControlName="role">
+            <option value="Batsman" >Batsman</option>
+            <option value="Bowler">Bowler</option>
+            <option value="Keeper" >Keeper</option>
+            <option value="All Rounder">All Rounder</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="totalMatches">total Matches :</label>
+        <input type="number"   class="form-control" id="totalMatches" formControlName="totalMatches"
+          required [ngClass]="{'is-invalid':getCricketTeam['totalMatches'].errors,'is-valid': !getCricketTeam['totalMatches'].errors}">
+          <div *ngIf="!getCricketTeam['totalMatches'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['totalMatches'].errors?.['required']" style="color: red;">total Matches cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="teamName">team Name :</label>
+        <input type="text"   class="form-control" id="teamName" formControlName="teamName"
+          required [ngClass]="{'is-invalid':getCricketTeam['teamName'].errors,'is-valid': !getCricketTeam['teamName'].errors}">
+          <div *ngIf="getCricketTeam['teamName'].errors && !getCricketTeam['teamName'].errors?.['required']" class="invalid-feedback">Team Name can have only alphabets</div>
+          <div *ngIf="!getCricketTeam['teamName'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['teamName'].errors?.['required']" style="color: red;">team Name cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="country">country :</label>
+        <input type="text"   class="form-control" id="country" formControlName="country"
+          required [ngClass]="{'is-invalid':getCricketTeam['country'].errors,'is-valid': !getCricketTeam['country'].errors}">
+          <div *ngIf="getCricketTeam['country'].errors && !getCricketTeam['country'].errors?.['required']" class="invalid-feedback">Country can have only alphabets</div>
+          <div *ngIf="!getCricketTeam['country'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['country'].errors?.['required']" style="color: red;">country cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="state">state :</label>
+        <input type="text"   class="form-control" id="state" formControlName="state"
+          required [ngClass]="{'is-invalid':getCricketTeam['state'].errors,'is-valid': !getCricketTeam['state'].errors}">
+          <div *ngIf="getCricketTeam['state'].errors && !getCricketTeam['state'].errors?.['required']" class="invalid-feedback">state can have only alphabets</div>
+          <div *ngIf="!getCricketTeam['state'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['state'].errors?.['required']" style="color: red;">state cannot be empty</div>
+      </div>
+      <div class="form-group">
+        <label for="description">description :</label>
+        <input type="text"   class="form-control" id="description" formControlName="description"
+          required [ngClass]="{'is-invalid':getCricketTeam['description'].errors,'is-valid': !getCricketTeam['description'].errors}">
+          <div *ngIf="!getCricketTeam['description'].errors" class="valid-feedback" style="color: rgb(9, 199, 34);">Looks good!</div>
+          <div *ngIf="getCricketTeam['description'].errors?.['required']" style="color: red;">description cannot be empty</div>
+      </div>
+      <button type="submit" [disabled]="cricketTeamForm.invalid"   class="btn btn-primary" style="width: 100%;">Update Profile</button>
+    </form>
+  </div>
